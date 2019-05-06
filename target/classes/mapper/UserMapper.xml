@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace命名空间，指向UserDao全路径-->
+<mapper namespace="com.test.user.dao.UserDao">
+
+    <!-- 根据id查询用户信息 -->
+    <!-- 
+        id：唯一标识 一个statement,和UserDao方法名一致
+        #{}：表示 一个占位符，如果#{}中传入简单类型的参数，#{}中的名称随意
+        parameterType：输入 参数的类型，和UserDao()里参数一致
+        resultType：输出结果 类型，和UserDao()返回类型一致
+     -->
+    <select id="findUserById" parameterType="com.test.user.entity.User" resultType="com.test.user.entity.User">
+        SELECT * FROM t_user_test
+        <where>
+        <if test="name != null">
+            AND Name= #{name}
+       </if>
+        <if test="password != null">
+            AND password= #{password}
+       </if>
+       </where> 
+    </select>
+    
+    <select id="findUser"  resultType="com.test.user.entity.User">
+        SELECT * FROM t_user_test
+    </select>
+    
+    </mapper>
