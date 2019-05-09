@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace命名空间，指向UserDao全路径-->
-<mapper namespace="com.test.user.dao.UserDao">
+<mapper namespace="com.easy.user.dao.UserDao">
 
     <!-- 根据id查询用户信息 -->
     <!-- 
@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         parameterType：输入 参数的类型，和UserDao()里参数一致
         resultType：输出结果 类型，和UserDao()返回类型一致
      -->
-    <select id="findUserById" parameterType="com.test.user.entity.User" resultType="com.test.user.entity.User">
+    <select id="findUserById" parameterType="com.easy.user.entity.User" resultType="com.easy.user.entity.User">
         SELECT * FROM t_user_test
         <where>
         <if test="name != null">
@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        </where> 
     </select>
     
-    <select id="findUser"  resultType="com.test.user.entity.User">
+    <select id="findUser"  resultType="com.easy.user.entity.User">
         SELECT * FROM t_user_test
     </select>
     
